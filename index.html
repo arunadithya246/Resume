@@ -3,518 +3,277 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Arun – Resume</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet"/>
+<title>Arun - Resume</title>
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   body {
-    font-family: 'Inter', sans-serif;
-    background: #e8ecf0;
-    min-height: 100vh;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 30px;
+    color: #222222;
   }
 
-  .page {
-    width: 900px;
-    min-height: 1100px;
-    background: #ffffff;
-    display: grid;
-    grid-template-columns: 270px 1fr;
-    box-shadow: 0 8px 40px rgba(0,0,0,0.13);
-    border-radius: 4px;
-    overflow: hidden;
+  .resume {
+    background-color: #ffffff;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    border: 1px solid #cccccc;
   }
 
-  /* ── SIDEBAR ── */
-  .sidebar {
-    background: #1a2332;
-    color: #e2e8f0;
-    padding: 36px 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 28px;
-  }
-
-  .photo-wrap {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 14px;
-  }
-
-  .photo {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    border: 3px solid #4a90d9;
-    object-fit: cover;
-    background: #2d3a4f;
+  .top {
     display: flex;
     align-items: center;
-    justify-content: center;
-    overflow: hidden;
+    gap: 20px;
+    border-bottom: 3px solid #333333;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
   }
 
-  .photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-  }
-
-  .photo-placeholder {
-    font-size: 11px;
-    color: #64748b;
+  .photo-box {
+    width: 110px;
+    height: 110px;
+    border: 2px dashed #999999;
+    background-color: #f5f5f5;
     text-align: center;
-    line-height: 1.4;
-  }
-
-  .sidebar-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 22px;
-    font-weight: 600;
-    color: #ffffff;
-    text-align: center;
-    line-height: 1.3;
-  }
-
-  .sidebar-role {
-    font-size: 11px;
-    color: #4a90d9;
-    text-align: center;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-top: 2px;
-  }
-
-  .s-section-title {
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 1.8px;
-    text-transform: uppercase;
-    color: #4a90d9;
-    border-bottom: 1px solid #2d3a4f;
-    padding-bottom: 6px;
-    margin-bottom: 10px;
-  }
-
-  .contact-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .contact-list li {
+    color: #888888;
     font-size: 12px;
-    color: #cbd5e1;
     display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    line-height: 1.5;
-  }
-
-  .contact-list li .icon {
-    color: #4a90d9;
-    font-size: 14px;
-    margin-top: 1px;
+    align-items: center;
+    justify-content: center;
     flex-shrink: 0;
   }
 
-  .skill-tag {
-    display: inline-block;
-    background: #2d3a4f;
-    color: #93c5fd;
-    font-size: 11px;
-    padding: 4px 9px;
-    border-radius: 3px;
-    margin: 3px 3px 3px 0;
-    font-weight: 400;
+  /* To use a real photo, replace the div above with:
+     <img class="photo-box" src="your-photo.jpg" alt="Arun" style="border:2px solid #333333; object-fit:cover;">
+  */
+
+  .name {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0;
   }
 
-  .lang-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 8px;
-  }
-
-  .lang-name {
-    font-size: 12px;
-    color: #cbd5e1;
-  }
-
-  .lang-dots {
-    display: flex;
-    gap: 4px;
-  }
-
-  .dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #2d3a4f;
-  }
-
-  .dot.filled { background: #4a90d9; }
-
-  /* ── MAIN ── */
-  .main {
-    padding: 36px 32px;
-    display: flex;
-    flex-direction: column;
-    gap: 22px;
-  }
-
-  .main-header {
-    border-bottom: 2.5px solid #1a2332;
-    padding-bottom: 12px;
-  }
-
-  .main-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 32px;
-    font-weight: 600;
-    color: #1a2332;
-    line-height: 1.1;
-  }
-
-  .main-sub {
-    font-size: 13px;
-    color: #64748b;
+  .role {
+    font-size: 14px;
+    color: #555555;
     margin-top: 5px;
-    font-weight: 400;
   }
 
-  .m-section-title {
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 1.8px;
+  .contact {
+    font-size: 13px;
+    color: #444444;
+    margin-top: 8px;
+    line-height: 1.6;
+  }
+
+  h2 {
+    font-size: 16px;
     text-transform: uppercase;
-    color: #1a2332;
-    border-left: 3px solid #4a90d9;
-    padding-left: 8px;
-    margin-bottom: 12px;
+    background-color: #333333;
+    color: #ffffff;
+    padding: 6px 10px;
+    margin-top: 25px;
+    margin-bottom: 10px;
   }
 
-  .entry { margin-bottom: 14px; }
-
-  .entry-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    flex-wrap: wrap;
-    gap: 4px;
+  .entry {
+    margin-bottom: 14px;
   }
 
   .entry-title {
+    font-weight: bold;
     font-size: 14px;
-    font-weight: 500;
-    color: #1a2332;
   }
 
   .entry-date {
-    font-size: 11px;
-    color: #64748b;
-    white-space: nowrap;
-    background: #f1f5f9;
-    padding: 2px 8px;
-    border-radius: 3px;
+    float: right;
+    font-size: 12px;
+    color: #666666;
   }
 
   .entry-sub {
+    font-size: 13px;
+    color: #555555;
+    font-style: italic;
+    margin: 2px 0 4px 0;
+  }
+
+  ul {
+    margin: 5px 0 0 20px;
+    padding: 0;
+  }
+
+  li {
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 3px;
+  }
+
+  p {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  table.skills-table {
+    width: 100%;
+    font-size: 13px;
+  }
+
+  table.skills-table td {
+    padding: 4px 0;
+    vertical-align: top;
+  }
+
+  table.skills-table td.label {
+    font-weight: bold;
+    width: 130px;
+  }
+
+  .tags span {
+    display: inline-block;
+    background-color: #e6e6e6;
+    border: 1px solid #cccccc;
+    padding: 3px 8px;
+    margin: 3px 4px 3px 0;
     font-size: 12px;
-    color: #4a90d9;
-    margin-top: 2px;
-    font-weight: 500;
   }
 
-  .entry-org {
+  .declaration {
+    margin-top: 25px;
+    border-top: 1px solid #cccccc;
+    padding-top: 12px;
     font-size: 12px;
-    color: #64748b;
-    margin-top: 1px;
-  }
-
-  ul.bullets {
-    margin-top: 5px;
-    padding-left: 16px;
-  }
-
-  ul.bullets li {
-    font-size: 12.5px;
-    color: #374151;
-    line-height: 1.65;
-    margin-bottom: 2px;
-  }
-
-  .skills-two-col {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6px 20px;
-  }
-
-  .skill-row {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-
-  .skill-row .label {
-    font-size: 11px;
-    font-weight: 500;
-    color: #64748b;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-
-  .skill-row .val {
-    font-size: 12.5px;
-    color: #1a2332;
-  }
-
-  .two-col-section {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0 28px;
-  }
-
-  @media print {
-    body { background: white; padding: 0; }
-    .page { box-shadow: none; border-radius: 0; width: 100%; }
+    color: #666666;
   }
 </style>
 </head>
 <body>
 
-<div class="page">
+<div class="resume">
 
-  <!-- SIDEBAR -->
-  <aside class="sidebar">
-
-    <div class="photo-wrap">
-      <!-- To add your photo: replace the div.photo below with:
-           <div class="photo"><img src="WhatsApp Image 2026-06-17 at 10.49.21 AM.jpeg" alt="Arun"></div>
-      -->
-      <div class="photo" style="flex-direction:column;"><img src="WhatsApp Image 2026-06-17 at 10.49.21 AM.jpeg" alt="Arun">
-        <svg width="36" height="36" fill="none" viewBox="0 0 24 24" stroke="#4a90d9" stroke-width="1.5">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/>
-        </svg>
-        <span style="font-size:9px; color:#4a6080; text-align:center;">Add your photo here</span>
-      </div>
-      <div>
-        <div class="sidebar-name">Arun</div>
-        <div class="sidebar-role">ECE Engineer</div>
-      </div>
-    </div>
-
+  <!-- TOP: PHOTO + NAME + CONTACT -->
+  <div class="top">
+    <div class="photo-box"><img src="WhatsApp Image 2026-06-17 at 10.49.21 AM.jpeg" alt="Arun" style="width: 100%; height: 100%; object-fit: cover;"></div>
     <div>
-      <div class="s-section-title">Contact</div>
-      <ul class="contact-list">
-        <li>
-          <span class="icon">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          </span>
-          Coimbatore, Tamil Nadu
-        </li>
-        <li>
-          <span class="icon">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          </span>
-          arun@email.com
-        </li>
-        <li>
-          <span class="icon">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-          </span>
-          +91 XXXXX XXXXX
-        </li>
-        <li>
-          <span class="icon">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-          </span>
-          linkedin.com/in/arun
-        </li>
-        <li>
-          <span class="icon">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
-          </span>
-          github.com/arun
-        </li>
-      </ul>
-    </div>
-
-    <div>
-      <div class="s-section-title">Education</div>
-      <div style="font-size:12.5px; color:#e2e8f0; font-weight:500; line-height:1.4;">Sri Krishna College of Engineering and Technology</div>
-      <div style="font-size:11.5px; color:#93c5fd; margin-top:3px;">B.E. Electronics & Communication</div>
-      <div style="font-size:11px; color:#94a3b8; margin-top:3px;">2022 – Present &nbsp;|&nbsp; CGPA: 8.1/10</div>
-    </div>
-
-    <div>
-      <div class="s-section-title">Technical Skills</div>
-      <div style="margin-bottom:6px;">
-        <div style="font-size:10px; color:#64748b; letter-spacing:0.5px; margin-bottom:5px; text-transform:uppercase;">Languages</div>
-        <span class="skill-tag">Java</span>
-        <span class="skill-tag">JavaScript</span>
-        <span class="skill-tag">HTML/CSS</span>
-        <span class="skill-tag">SQL</span>
-      </div>
-      <div style="margin-bottom:6px;">
-        <div style="font-size:10px; color:#64748b; letter-spacing:0.5px; margin-bottom:5px; text-transform:uppercase;">Tools</div>
-        <span class="skill-tag">Oracle APEX</span>
-        <span class="skill-tag">Node.js</span>
-        <span class="skill-tag">Git</span>
-      </div>
-      <div>
-        <div style="font-size:10px; color:#64748b; letter-spacing:0.5px; margin-bottom:5px; text-transform:uppercase;">Core CS</div>
-        <span class="skill-tag">DSA</span>
-        <span class="skill-tag">OOP</span>
-        <span class="skill-tag">DBMS</span>
-      </div>
-    </div>
-
-    <div>
-      <div class="s-section-title">Languages</div>
-      <div class="lang-row">
-        <span class="lang-name">Tamil</span>
-        <div class="lang-dots">
-          <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div>
-        </div>
-      </div>
-      <div class="lang-row">
-        <span class="lang-name">English</span>
-        <div class="lang-dots">
-          <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div>
-        </div>
-      </div>
-    </div>
-
-    <div>
-      <div class="s-section-title">Interests</div>
-      <div style="font-size:12px; color:#cbd5e1; line-height:1.8;">
-        IoT & Embedded Systems<br>
-        AI / Machine Learning<br>
-        Travel & Exploration<br>
-        Content Creation (Vertex)
-      </div>
-    </div>
-
-  </aside>
-
-  <!-- MAIN CONTENT -->
-  <main class="main">
-
-    <div class="main-header">
-      <div class="main-name">Arun</div>
-      <div class="main-sub">B.E. Electronics & Communication Engineering &nbsp;·&nbsp; SKCET, Coimbatore &nbsp;·&nbsp; Third Year</div>
-    </div>
-
-    <!-- OBJECTIVE -->
-    <div>
-      <div class="m-section-title">Objective</div>
-      <p style="font-size:13px; color:#374151; line-height:1.7;">
-        Motivated ECE student with a strong foundation in embedded systems, IoT, and software development seeking a software/tech internship to apply DSA, OOP, and full-stack skills in a real-world engineering environment. Eager to contribute to innovative projects at a forward-thinking organization.
+      <p class="name">Arun</p>
+      <p class="role">B.E. Electronics &amp; Communication Engineering | SKCET, Coimbatore</p>
+      <p class="contact">
+        Coimbatore, Tamil Nadu &nbsp;|&nbsp; arun@email.com &nbsp;|&nbsp; +91 XXXXX XXXXX<br>
+        linkedin.com/in/arun &nbsp;|&nbsp; github.com/arun
       </p>
     </div>
+  </div>
 
-    <!-- PROJECTS -->
-    <div>
-      <div class="m-section-title">Projects</div>
+  <!-- OBJECTIVE -->
+  <h2>Objective</h2>
+  <p>
+    Motivated ECE student with a strong foundation in embedded systems, IoT, and software development,
+    seeking a software/tech internship to apply DSA, OOP, and full-stack skills in a real-world engineering
+    environment. Eager to contribute to innovative projects at a forward-thinking organization.
+  </p>
 
-      <div class="entry">
-        <div class="entry-header">
-          <span class="entry-title">Kerala EB Smart Fence Alert System</span>
-          <span class="entry-date">2024</span>
-        </div>
-        <div class="entry-sub">IoT · Embedded Systems · Alert Automation</div>
-        <ul class="bullets">
-          <li>Designed an automated intrusion detection system integrated with electricity board infrastructure using sensors and microcontroller logic</li>
-          <li>Reduced manual monitoring overhead by enabling real-time SMS/alert notifications on fence breach events</li>
-        </ul>
-      </div>
+  <!-- EDUCATION -->
+  <h2>Education</h2>
+  <div class="entry">
+    <span class="entry-title">Sri Krishna College of Engineering and Technology</span>
+    <span class="entry-date">2022 - Present</span>
+    <div class="entry-sub">B.E. Electronics &amp; Communication Engineering | CGPA: 8.1 / 10</div>
+  </div>
 
-      <div class="entry">
-        <div class="entry-header">
-          <span class="entry-title">Smart Parking System</span>
-          <span class="entry-date">2023</span>
-        </div>
-        <div class="entry-sub">IoT · Web Dashboard · Sensor Integration</div>
-        <ul class="bullets">
-          <li>Built an IR/ultrasonic sensor array to detect slot occupancy and display live status on an LCD and web interface</li>
-          <li>Integrated microcontroller with a web dashboard for remote slot availability monitoring</li>
-        </ul>
-      </div>
+  <!-- SKILLS -->
+  <h2>Technical Skills</h2>
+  <table class="skills-table">
+    <tr>
+      <td class="label">Languages</td>
+      <td class="tags"><span>Java</span><span>JavaScript</span><span>HTML/CSS</span><span>SQL</span></td>
+    </tr>
+    <tr>
+      <td class="label">Tools</td>
+      <td class="tags"><span>Oracle APEX</span><span>Node.js</span><span>Git</span></td>
+    </tr>
+    <tr>
+      <td class="label">Core CS</td>
+      <td class="tags"><span>DSA</span><span>OOP</span><span>DBMS</span></td>
+    </tr>
+  </table>
 
-      <div class="two-col-section">
-        <div class="entry">
-          <div class="entry-header">
-            <span class="entry-title">Electric Bicycle Conversion</span>
-            <span class="entry-date">2023</span>
-          </div>
-          <div class="entry-sub">Motor Control · Circuit Design</div>
-          <ul class="bullets">
-            <li>Retrofitted a conventional bicycle with electric motor drive, battery pack management, and throttle control circuitry</li>
-          </ul>
-        </div>
-        <div class="entry">
-          <div class="entry-header">
-            <span class="entry-title">Motor RPM Control</span>
-            <span class="entry-date">2023</span>
-          </div>
-          <div class="entry-sub">PWM · Closed-loop Feedback</div>
-          <ul class="bullets">
-            <li>Implemented closed-loop feedback using encoder input to maintain target RPM under varying loads</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+  <!-- PROJECTS -->
+  <h2>Projects</h2>
 
-    <!-- EXPERIENCE / ACTIVITIES -->
-    <div>
-      <div class="m-section-title">Activities & Leadership</div>
-      <div class="entry">
-        <div class="entry-header">
-          <span class="entry-title">Founder & Editor — Vertex (Instagram)</span>
-          <span class="entry-date">Ongoing</span>
-        </div>
-        <div class="entry-sub">Content Creation · Tech Communication</div>
-        <ul class="bullets">
-          <li>Curates and publishes global news, tech content, and memes to an engaged audience; manages content strategy and design</li>
-        </ul>
-      </div>
-    </div>
+  <div class="entry">
+    <span class="entry-title">Kerala EB Smart Fence Alert System</span>
+    <span class="entry-date">2024</span>
+    <div class="entry-sub">IoT | Embedded Systems | Alert Automation</div>
+    <ul>
+      <li>Designed an automated intrusion detection system integrated with electricity board infrastructure using sensors and microcontroller logic</li>
+      <li>Reduced manual monitoring overhead by enabling real-time SMS/alert notifications on fence breach events</li>
+    </ul>
+  </div>
 
-    <!-- COURSEWORK & CERTIFICATIONS -->
-    <div>
-      <div class="m-section-title">Relevant Coursework</div>
-      <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:2px;">
-        <span style="font-size:12px; background:#f1f5f9; color:#1a2332; padding:4px 10px; border-radius:3px; border-left:2px solid #4a90d9;">Data Structures & Algorithms</span>
-        <span style="font-size:12px; background:#f1f5f9; color:#1a2332; padding:4px 10px; border-radius:3px; border-left:2px solid #4a90d9;">Object-Oriented Programming</span>
-        <span style="font-size:12px; background:#f1f5f9; color:#1a2332; padding:4px 10px; border-radius:3px; border-left:2px solid #4a90d9;">Database Management Systems</span>
-        <span style="font-size:12px; background:#f1f5f9; color:#1a2332; padding:4px 10px; border-radius:3px; border-left:2px solid #4a90d9;">Analog Communication</span>
-        <span style="font-size:12px; background:#f1f5f9; color:#1a2332; padding:4px 10px; border-radius:3px; border-left:2px solid #4a90d9;">Digital Signal Processing</span>
-        <span style="font-size:12px; background:#f1f5f9; color:#1a2332; padding:4px 10px; border-radius:3px; border-left:2px solid #4a90d9;">Embedded Systems</span>
-      </div>
-    </div>
+  <div class="entry">
+    <span class="entry-title">Smart Parking System</span>
+    <span class="entry-date">2023</span>
+    <div class="entry-sub">IoT | Web Dashboard | Sensor Integration</div>
+    <ul>
+      <li>Built an IR/ultrasonic sensor array to detect slot occupancy and display live status on an LCD and web interface</li>
+      <li>Integrated microcontroller with a web dashboard for remote slot availability monitoring</li>
+    </ul>
+  </div>
 
-    <!-- DECLARATION -->
-    <div style="margin-top:auto; padding-top:16px; border-top:0.5px solid #e2e8f0;">
-      <p style="font-size:11.5px; color:#94a3b8; line-height:1.6;">
-        I hereby declare that the information provided above is true and correct to the best of my knowledge.<br>
-        <strong style="color:#1a2332;">Arun</strong> &nbsp;|&nbsp; Coimbatore, Tamil Nadu &nbsp;|&nbsp; <span id="today-date"></span>
-      </p>
-    </div>
+  <div class="entry">
+    <span class="entry-title">Electric Bicycle Conversion</span>
+    <span class="entry-date">2023</span>
+    <div class="entry-sub">Motor Control | Circuit Design</div>
+    <ul>
+      <li>Retrofitted a conventional bicycle with electric motor drive, battery pack management, and throttle control circuitry</li>
+    </ul>
+  </div>
 
-  </main>
+  <div class="entry">
+    <span class="entry-title">Motor RPM Control System</span>
+    <span class="entry-date">2023</span>
+    <div class="entry-sub">PWM | Closed-loop Feedback</div>
+    <ul>
+      <li>Implemented closed-loop feedback using encoder input to maintain target RPM under varying loads</li>
+    </ul>
+  </div>
+
+  <!-- ACTIVITIES -->
+  <h2>Activities &amp; Leadership</h2>
+  <div class="entry">
+    <span class="entry-title">Founder &amp; Editor - Vertex (Instagram)</span>
+    <span class="entry-date">Ongoing</span>
+    <div class="entry-sub">Content Creation | Tech Communication</div>
+    <ul>
+      <li>Curates and publishes global news, tech content, and memes to an engaged audience; manages content strategy and design</li>
+    </ul>
+  </div>
+
+  <!-- COURSEWORK -->
+  <h2>Relevant Coursework</h2>
+  <div class="tags">
+    <span>Data Structures &amp; Algorithms</span>
+    <span>Object-Oriented Programming</span>
+    <span>Database Management Systems</span>
+    <span>Analog Communication</span>
+    <span>Digital Signal Processing</span>
+    <span>Embedded Systems</span>
+  </div>
+
+  <!-- LANGUAGES & INTERESTS -->
+  <h2>Languages &amp; Interests</h2>
+  <p>
+    <strong>Languages:</strong> Tamil (Native), English (Fluent)<br>
+    <strong>Interests:</strong> IoT &amp; Embedded Systems, AI/Machine Learning, Travel &amp; Exploration, Content Creation
+  </p>
+
+  <!-- DECLARATION -->
+  <div class="declaration">
+    I hereby declare that the information provided above is true and correct to the best of my knowledge.<br>
+    <strong>Arun</strong> | Coimbatore, Tamil Nadu
+  </div>
+
 </div>
-
-<script>
-  const d = new Date();
-  document.getElementById('today-date').textContent = d.toLocaleDateString('en-IN', {day:'numeric', month:'long', year:'numeric'});
-</script>
 </body>
 </html>
