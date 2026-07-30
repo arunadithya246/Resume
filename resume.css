@@ -1,0 +1,76 @@
+/* resume.css */
+
+/* Reset & base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+  background: #f9fafc; /* light background */
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Header styling */
+h1 {
+  font-size: 2.2rem;
+  color: #004e92;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 1rem;
+  color: #444;
+}
+
+/* Links */
+a {
+  color: #004e92;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #006bb3;
+  text-decoration: underline;
+}
+
+/* Top-right image */
+.top-right {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 120px;
+  height: auto;
+  border-radius: 50%; /* makes it circular */
+  border: 3px solid #004e92;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Centered content */
+center {
+  margin-top: 80px; /* pushes text below the image */
+}
+
+/* Section styling */
+section {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 15px;
+  background: #f1f1f1;
+  color: #555;
+  margin-top: 40px;
+  font-size: 0.9rem;
+}
